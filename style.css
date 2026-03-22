@@ -425,15 +425,29 @@ nav {
 #about {
   max-width: var(--max);
   margin: 0 auto;
+}
+.about-top {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 .ai {
   position: relative;
   overflow: hidden;
-  min-height: 520px;
+  min-height: 500px;
   background: #0a0a0a;
 }
+.about-full {
+  padding: 3rem 3rem 5rem;
+  background: var(--black);
+  border-top: 1px solid var(--border);
+}
+.at-short {
+  color: var(--dim);
+  font-size: .92rem;
+  line-height: 1.95;
+  margin-top: 1.5rem;
+}
+.at-short strong { color: var(--white); font-weight: 600; }
 .ai img {
   width: 100%;
   height: 100%;
@@ -459,11 +473,11 @@ nav {
   z-index: 2;
 }
 .ar {
-  padding: 5rem 3rem;
+  padding: 4rem 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background: var(--black);
+  overflow-y: auto;
 }
 .slb {
   font-family: var(--fm);
@@ -784,11 +798,13 @@ footer {
   .tw { padding: .5rem 0; }
   .ti { font-size: .65rem; padding: 0 1.5rem; }
 
-  #about { grid-template-columns: 1fr; border-left: none; border-right: none; }
-  .ai { min-height: 60vw; }
+  #about { border-left: none; border-right: none; }
+  .about-top { grid-template-columns: 1fr; }
+  .ai { min-height: 60vw; height: auto; }
   .ar { padding: 2.5rem 1.2rem; border-left: none; border-top: 1px solid var(--border); }
+  .about-full { padding: 2rem 1.2rem 3rem; }
   .stl { font-size: clamp(2rem, 8vw, 3rem); }
-  .at { font-size: .88rem; margin-top: 1.5rem; }
+  .at { font-size: .88rem; margin-top: 1.5rem; columns: 1; }
 
   .cs { padding: 3rem 0; }
   .ci { font-size: 1.3rem; padding: 0 1.5rem; }
