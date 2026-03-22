@@ -96,8 +96,6 @@ nav {
   grid-template-columns: 1fr 1fr;
   position: relative;
   overflow: hidden;
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
 }
 #hero::before {
   content: '';
@@ -117,7 +115,6 @@ nav {
   padding: 8rem 2.5rem 4rem 3rem;
   position: relative;
   z-index: 2;
-  border-right: 1px solid var(--border);
 }
 .he {
   font-family: var(--fm);
@@ -139,10 +136,11 @@ nav {
 }
 .hn {
   font-family: var(--fd);
-  font-size: clamp(3.8rem, 7vw, 7rem);
+  font-size: clamp(2.5rem, 5vw, 5rem);
   line-height: .85;
   letter-spacing: .02em;
   color: var(--white);
+  white-space: nowrap;
 }
 .ht {
   font-family: var(--fm);
@@ -437,8 +435,6 @@ nav {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
 }
 .ai {
   position: relative;
@@ -476,7 +472,6 @@ nav {
   flex-direction: column;
   justify-content: center;
   background: var(--black);
-  border-left: 1px solid var(--border);
 }
 .slb {
   font-family: var(--fm);
