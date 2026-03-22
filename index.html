@@ -182,7 +182,7 @@
         </div>
       </div>
       <div class="reveal">
-        <form class="cf" action="https://formspree.io/f/mreyvyyk" method="POST">
+        <form class="cf" id="contactForm">
           <div class="fr">
             <div class="fg">
               <label class="fla">Name</label>
@@ -208,13 +208,14 @@
             <label class="fla">Message</label>
             <textarea name="message" class="fi fta" placeholder="Tell me about your idea or project..." required></textarea>
           </div>
-          <button type="submit" class="fsb">
+          <button type="submit" class="fsb" id="submitBtn">
             <span>Send Message</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="5" y1="12" x2="19" y2="12"/>
               <polyline points="12 5 19 12 12 19"/>
             </svg>
           </button>
+          <div id="formMsg" style="display:none;margin-top:1rem;font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.1em;padding:.9rem 1rem;border:1px solid rgba(255,255,255,.15);"></div>
         </form>
       </div>
     </div>
