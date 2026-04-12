@@ -60,19 +60,37 @@ const speed = 0.5;
 })();
 
 
-// ── WAVEFORM PLAY TOGGLE ─────────────────────────────────
+// ── VIDEO + WAVEFORM PLAY TOGGLE ─────────────────────────
+const video = document.getElementById('heroVideo');
 const wf = document.getElementById('waveform');
 const pb = document.getElementById('playBtn');
 let playing = false;
 
 function togglePlay() {
   playing = !playing;
-  wf.classList.toggle('active', playing);
-  pb.innerHTML = playing ? '&#9646;&#9646;' : '&#9654;';
+  if (playing) {
+    video.play();
+    wf.classList.add('active');
+    pb.innerHTML = '&#9646;&#9646;';
+  } else {
+    video.pause();
+    wf.classList.remove('active');
+    pb.innerHTML = '&#9654;';
+  }
 }
 
-wf.addEventListener('click', togglePlay);
 pb.addEventListener('click', togglePlay);
+wf.addEventListener('click', togglePlay);
+
+// Reset cuando termina
+video.addEventListener('ended', () => {
+  playing = false;
+  wf.classList.remove('active');
+  pb.innerHTML = '&#9654;';
+});
+
+// Protección básica: bloquear click derecho en el video
+video.addEventListener('contextmenu', e => e.preventDefault());
 
 
 // ── SCROLL REVEAL ────────────────────────────────────────
