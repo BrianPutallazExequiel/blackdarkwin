@@ -67,12 +67,27 @@ const pb = document.getElementById('playBtn');
 let playing = false;
 
 function togglePlay() {
-  playing = !playing;
-  if (playing) {
-    video.play();
+  if (!playing) {
+    const playRequest = video.play();
+    if (playRequest !== undefined) {
+      playRequest
+        .then(() => {
+          playing = true;
+          wf.classList.add('active');
+          pb.innerHTML = '&#9646;&#9646;';
+        })
+        .catch(() => {
+          playing = false;
+          wf.classList.remove('active');
+          pb.innerHTML = '&#9654;';
+        });
+      return;
+    }
+    playing = true;
     wf.classList.add('active');
     pb.innerHTML = '&#9646;&#9646;';
   } else {
+    playing = false;
     video.pause();
     wf.classList.remove('active');
     pb.innerHTML = '&#9654;';
