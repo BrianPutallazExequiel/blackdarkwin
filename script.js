@@ -64,7 +64,15 @@ const speed = 0.5;
 const video = document.getElementById('heroVideo');
 const wf = document.getElementById('waveform');
 const pb = document.getElementById('playBtn');
+const videoWrap = video.closest('.sa');
+const volumeSlider = document.getElementById('volumeSlider');
 let playing = false;
+
+video.volume = Number(volumeSlider.value);
+volumeSlider.addEventListener('input', () => {
+  video.volume = Number(volumeSlider.value);
+  video.muted = video.volume === 0;
+});
 
 function togglePlay() {
   if (!playing) {
@@ -73,22 +81,26 @@ function togglePlay() {
       playRequest
         .then(() => {
           playing = true;
+          videoWrap.classList.add('is-playing');
           wf.classList.add('active');
           pb.innerHTML = '&#9646;&#9646;';
         })
         .catch(() => {
           playing = false;
+          videoWrap.classList.remove('is-playing');
           wf.classList.remove('active');
           pb.innerHTML = '&#9654;';
         });
       return;
     }
     playing = true;
+    videoWrap.classList.add('is-playing');
     wf.classList.add('active');
     pb.innerHTML = '&#9646;&#9646;';
   } else {
     playing = false;
     video.pause();
+    videoWrap.classList.remove('is-playing');
     wf.classList.remove('active');
     pb.innerHTML = '&#9654;';
   }
@@ -100,6 +112,7 @@ wf.addEventListener('click', togglePlay);
 // Reset cuando termina
 video.addEventListener('ended', () => {
   playing = false;
+  videoWrap.classList.remove('is-playing');
   wf.classList.remove('active');
   pb.innerHTML = '&#9654;';
 });

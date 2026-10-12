@@ -242,7 +242,20 @@ nav {
   overflow: hidden;
   background: #0e0e0e;
 }
+.video-poster {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  filter: none;
+  opacity: 1;
+}
+.sa.is-playing .video-poster {
+  opacity: 0;
+  pointer-events: none;
+}
 .sa video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
@@ -286,7 +299,7 @@ nav {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, .6) 100%);
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
 }
 .spo {
@@ -295,7 +308,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  z-index: 3;
   opacity: 0;
   transition: opacity .25s;
 }
@@ -371,6 +384,58 @@ nav {
 @keyframes wave {
   0%, 100% { height: 25%; }
   50% { height: 100%; }
+}
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  margin: -.15rem 0 1rem;
+  color: var(--dim);
+}
+.volume-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+.volume-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+.volume-slider {
+  width: 100%;
+  height: 18px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+.volume-slider::-webkit-slider-runnable-track {
+  height: 2px;
+  background: rgba(255, 255, 255, .18);
+}
+.volume-slider::-webkit-slider-thumb {
+  width: 12px;
+  height: 12px;
+  margin-top: -5px;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+  background: var(--white);
+  -webkit-appearance: none;
+}
+.volume-slider::-moz-range-track {
+  height: 2px;
+  background: rgba(255, 255, 255, .18);
+}
+.volume-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+  background: var(--white);
 }
 .sp {
   display: flex;
