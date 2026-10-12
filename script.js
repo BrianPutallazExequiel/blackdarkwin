@@ -76,17 +76,20 @@ volumeSlider.addEventListener('input', () => {
 
 function togglePlay() {
   if (!playing) {
+    videoWrap.classList.add('is-starting');
     const playRequest = video.play();
     if (playRequest !== undefined) {
       playRequest
         .then(() => {
           playing = true;
+          videoWrap.classList.remove('is-starting');
           videoWrap.classList.add('is-playing');
           wf.classList.add('active');
           pb.innerHTML = '&#9646;&#9646;';
         })
         .catch(() => {
           playing = false;
+          videoWrap.classList.remove('is-starting');
           videoWrap.classList.remove('is-playing');
           wf.classList.remove('active');
           pb.innerHTML = '&#9654;';
@@ -94,24 +97,27 @@ function togglePlay() {
       return;
     }
     playing = true;
+    videoWrap.classList.remove('is-starting');
     videoWrap.classList.add('is-playing');
     wf.classList.add('active');
     pb.innerHTML = '&#9646;&#9646;';
   } else {
     playing = false;
     video.pause();
+    videoWrap.classList.remove('is-starting');
     videoWrap.classList.remove('is-playing');
     wf.classList.remove('active');
     pb.innerHTML = '&#9654;';
   }
 }
 
-pb.addEventListener('click', togglePlay);
+videoWrap.addEventListener('click', togglePlay);
 wf.addEventListener('click', togglePlay);
 
 // Reset cuando termina
 video.addEventListener('ended', () => {
   playing = false;
+  videoWrap.classList.remove('is-starting');
   videoWrap.classList.remove('is-playing');
   wf.classList.remove('active');
   pb.innerHTML = '&#9654;';

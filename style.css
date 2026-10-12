@@ -241,21 +241,28 @@ nav {
   position: relative;
   overflow: hidden;
   background: #0e0e0e;
+  cursor: pointer;
 }
-.video-poster {
+.sa .video-poster {
   position: absolute;
   inset: 0;
   z-index: 1;
   filter: none;
   opacity: 1;
+  pointer-events: none;
+  transition: opacity .25s;
+  transform: none;
 }
+.sa.is-starting .video-poster,
 .sa.is-playing .video-poster {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
 .sa video {
   position: absolute;
   inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   display: block;
@@ -309,10 +316,14 @@ nav {
   align-items: center;
   justify-content: center;
   z-index: 3;
-  opacity: 0;
+  opacity: 1;
   transition: opacity .25s;
+  pointer-events: none;
 }
-.sc:hover .spo { opacity: 1; }
+.sa.is-playing .spo,
+.sc:hover .sa.is-playing .spo {
+  opacity: 0;
+}
 .pc {
   width: 58px;
   height: 58px;
