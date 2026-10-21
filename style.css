@@ -160,7 +160,6 @@ nav {
   display: flex;
   flex-wrap: wrap;
   gap: .5rem;
-  margin-top: 2.2rem;
 }
 .sl {
   font-family: var(--fm);
@@ -891,7 +890,7 @@ footer {
   .hn { font-size: clamp(3rem, 14vw, 5rem); }
   .ht { font-size: .52rem; margin-top: 1.2rem; }
   .hb { margin-top: 1.2rem; max-width: 100%; }
-  .hs { margin-top: 1.5rem; gap: .4rem; }
+  .hs { gap: .4rem; }
   .sl { font-size: .5rem; padding: .35rem .65rem .35rem .5rem; }
   .sl svg { width: 12px; height: 12px; }
 
