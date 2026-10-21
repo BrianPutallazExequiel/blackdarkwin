@@ -171,7 +171,6 @@ nav {
   display: flex;
   align-items: center;
   gap: .5rem;
-  border: 1px solid var(--border);
   padding: .4rem .75rem .4rem .6rem;
   transition: color .2s, border-color .2s;
 }
@@ -892,7 +891,7 @@ footer {
   .hb { margin-top: 1.2rem; max-width: 100%; }
   .hs { gap: .4rem; }
   .sl { font-size: .5rem; padding: .35rem .65rem .35rem .5rem; }
-  .sl svg { width: 12px; height: 12px; }
+  .sl svg { width: 16px; height: 16px; }
 
   .hr { padding: 2rem 1.2rem 3rem; align-items: flex-start; }
   .ll { margin-bottom: 1rem; }
@@ -941,7 +940,7 @@ footer {
   }
   .hn { font-size: clamp(2.8rem, 16vw, 4.5rem); }
   .hs { gap: .35rem; }
-  .sl { padding: .3rem .55rem .3rem .45rem; }
+  .sl {  }
   .pg { grid-template-columns: 1fr; grid-template-rows: auto; }
   .pi { height: 200px; }
   .pi:first-child { grid-row: span 1; }
